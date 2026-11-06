@@ -48,18 +48,13 @@ a.social:hover{opacity:.7}a.social:focus-visible{outline:2px solid var(--lime);o
 .meta i::before{content:" · "}
 hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
 
-/* hero — logo + tagline top-left, bottle line-up under a red spotlight, title spanning the full width at the foot */
-.hero{min-height:92svh}.hero .in{display:flex;flex-direction:column;min-height:inherit;width:100%}.hero .bar{margin-bottom:2rem}
-.hero .top{flex:1;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
-.hero .logo-hero{width:min(100%,420px);height:auto}
-.hero .tagline{font-family:"Bodoni Moda",Didot,"Times New Roman",serif;font-style:italic;font-size:1.05rem;letter-spacing:.01em;color:var(--paper);margin:.5rem 0 0 .15rem}
-.hero .lineup{position:relative;display:flex;align-items:flex-end;justify-content:flex-end;gap:clamp(.6rem,2vw,1.6rem);padding-bottom:.5rem}
-.hero .lineup::before{content:"";position:absolute;left:0;right:0;bottom:-10%;height:80%;background:radial-gradient(55% 55% at 50% 80%,rgba(200,50,31,.8),rgba(200,50,31,.25) 45%,transparent 72%);filter:blur(18px)}
-.hero .lineup img{position:relative;height:clamp(140px,26vh,260px);width:auto}
-.hero .title{border-top:1px solid var(--rule);padding-top:1.2rem;margin-top:2rem}
-.hero .title .h.xl{font-size:clamp(3.4rem,15.5vw,14rem);white-space:nowrap;margin-bottom:.6rem}
-.hero .title .lead{margin:0}
-@media (max-width:760px){.hero .top{grid-template-columns:1fr;align-items:start}.hero .lineup{justify-content:flex-start}.hero .lineup img{height:150px}.hero .lineup img:nth-child(n+4){display:none}.hero .title .h.xl{white-space:normal}}
+/* hero */
+.hero{min-height:92svh}.hero .in{display:flex;flex-direction:column;min-height:inherit;width:100%}.hero .bar{margin-bottom:2.4rem}.hero .logo-hero{width:min(100%,420px);height:auto}.hero .tagline{font-family:"Bodoni Moda",Didot,"Times New Roman",serif;font-style:italic;font-size:1.05rem;letter-spacing:.01em;color:var(--paper);margin:.5rem 0 auto .15rem}.hero .h.xl{font-size:clamp(4rem,17vw,13rem)}
+.hero .photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#222}
+.hero .photo img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.hero .photo .tag{position:absolute;left:0;bottom:0;background:var(--black);color:var(--paper);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .7rem}
+.hero .cities{writing-mode:vertical-rl;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;position:absolute;right:.6rem;top:.6rem;color:var(--paper);mix-blend-mode:difference}
+
 
 /* nav */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--black);color:var(--paper);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
@@ -154,7 +149,8 @@ footer .h{margin-bottom:.4rem}
   #bottle .h.lg,#bottle2 .h.lg{font-size:3.2rem}
   #bottle .lead{display:none}
   #bottle2 .h.lg{display:block}
-  .hero{break-before:auto;height:210mm;min-height:0;display:flex;flex-direction:column}.hero .logo-hero{width:340px}.hero .tagline{font-size:1.1rem}.hero .lineup img{height:230px}.hero .title .h.xl{font-size:11.5rem}.hero .in{min-height:0;flex:1}.hero .h.xl{font-size:12rem}
+  .hero{break-before:auto;height:210mm;min-height:0;display:flex;flex-direction:column}.hero .logo-hero{width:380px}.hero .tagline{font-size:1.1rem}.hero .in{min-height:0;flex:1}.hero .h.xl{font-size:12rem}
+  .hero .photo img{transform:none!important}
   .h.lg{font-size:3rem;margin-bottom:2.6rem}.h.md{font-size:1.4rem}.lead{margin-bottom:.6rem}
   .list li{padding:.2rem 0}.list{margin-bottom:.6rem}
   .h{break-after:avoid}
@@ -174,18 +170,11 @@ footer .h{margin-bottom:.4rem}
 <header class="blk dark hero" id="top">
   <div class="in">
     <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><span class="links"><a href="https://www.instagram.com/baccaratbangkok" target="_blank" rel="noopener">@baccaratbangkok</a><a href="https://www.24blvd.com" target="_blank" rel="noopener">24blvd.com</a></span></div>
-    <div class="top">
-      <div>
-        <img class="logo-hero" src="img/logo.webp" alt="Baccarat">
-        <p class="tagline">I licked it.. so it’s mine</p>
-      </div>
-      <div class="lineup" aria-hidden="true">
-        <img src="img/dp-magnum.webp" alt=""><img src="img/dj1942.webp" alt=""><img src="img/louis13.webp" alt=""><img src="img/armand.webp" alt=""><img src="img/ca-ultra.webp" alt="">
-      </div>
-    </div>
-    <div class="title">
-      <h1 class="h xl">Drinks <em>Menu</em></h1>
+    <img class="logo-hero" src="img/logo.webp" alt="Baccarat">
+    <p class="tagline">I licked it.. so it’s mine</p>
+    <div>
       <p class="lead"><a class="social" href="https://www.instagram.com/baccaratbangkok" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>@baccaratbangkok</a></p>
+      <h1 class="h xl">Drinks<br><em>Menu</em></h1>
     </div>
   </div>
 </header>
