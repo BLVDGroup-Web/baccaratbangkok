@@ -49,7 +49,9 @@ a.social:hover{opacity:.7}a.social:focus-visible{outline:2px solid var(--lime);o
 hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
 
 /* hero */
-.hero{min-height:92svh}.hero .in{display:flex;flex-direction:column;min-height:inherit;width:100%}.hero .bar{margin-bottom:.9rem;align-items:end}.hero .lockup{display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap}.hero .addr{margin:0 0 auto;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700}.hero .logo-hero{width:clamp(120px,15vw,160px);height:auto}.hero .tagline{font-family:"Bodoni Moda",Didot,"Times New Roman",serif;font-style:italic;font-weight:400;font-size:1rem;letter-spacing:.01em;text-transform:none;color:var(--paper)}.hero .h.xl{font-size:clamp(4rem,17vw,13rem)}
+.hero{min-height:92svh;position:relative;isolation:isolate;overflow:hidden}.hero .in{display:flex;flex-direction:column;min-height:inherit;width:100%;position:relative}
+.hero .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(17,16,16,.88) 0%,rgba(17,16,16,.5) 45%,rgba(17,16,16,.9) 100%)}.hero .bar{margin-bottom:.9rem;align-items:end}.hero .lockup{display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap}.hero .addr{margin:0 0 auto;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700}.hero .logo-hero{width:clamp(120px,15vw,160px);height:auto}.hero .tagline{font-family:"Bodoni Moda",Didot,"Times New Roman",serif;font-style:italic;font-weight:400;font-size:1rem;letter-spacing:.01em;text-transform:none;color:var(--paper)}.hero .h.xl{font-size:clamp(4rem,17vw,13rem)}
 .hero .photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#222}
 .hero .photo img{width:100%;height:100%;object-fit:cover;will-change:transform}
 .hero .photo .tag{position:absolute;left:0;bottom:0;background:var(--black);color:var(--paper);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .7rem}
@@ -149,7 +151,7 @@ footer .h{margin-bottom:.4rem}
   #bottle .h.lg,#bottle2 .h.lg{font-size:3.2rem}
   #bottle .lead{display:none}
   #bottle2 .h.lg{display:block}
-  .hero{break-before:auto;height:210mm;min-height:0;display:flex;flex-direction:column}.hero .logo-hero{width:150px}.hero .tagline{font-size:.95rem}.hero .in{min-height:0;flex:1}.hero .h.xl{font-size:12rem}
+  .hero{break-before:auto;height:210mm;min-height:0;display:flex;flex-direction:column}.hero .bgv{display:none}.hero{background:var(--bg) url(img/cover-poster.jpg) center/cover}.hero .logo-hero{width:150px}.hero .tagline{font-size:.95rem}.hero .in{min-height:0;flex:1}.hero .h.xl{font-size:12rem}
   .hero .photo img{transform:none!important}
   .h.lg{font-size:3rem;margin-bottom:2.6rem}.h.md{font-size:1.4rem}.lead{margin-bottom:.6rem}
   .list li{padding:.2rem 0}.list{margin-bottom:.6rem}
@@ -168,6 +170,7 @@ footer .h{margin-bottom:.4rem}
 <body>
 
 <header class="blk dark hero" id="top">
+  <video class="bgv" autoplay muted loop playsinline poster="img/cover-poster.jpg" aria-hidden="true"><source src="img/cover.mp4" type="video/mp4"></video>
   <div class="in">
     <div class="bar"><span class="lockup"><img class="logo-hero" src="img/logo.webp" alt="Baccarat"><em class="tagline">I licked it.. so it’s mine</em></span><span class="links"><a href="https://www.instagram.com/baccaratbangkok" target="_blank" rel="noopener">@baccaratbangkok</a><a href="https://www.24blvd.com" target="_blank" rel="noopener">24blvd.com</a></span></div>
     <p class="addr">Baccarat · Sukhumvit 24 · Bangkok</p>
