@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baccarat Drinks Menu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400&family=Archivo:wght@400;500;700&display=swap">
+<style>
+/* Layout: stacked full-bleed color blocks (black / cream / red / cream / lime / black), each opened by a tiny brand bar; heavy condensed heads mix Anton with light Oswald. Single committed palette. */
+:root{
+  --black:#111010; --cream:#f1efe8; --red:#c8321f; --lime:#9ee043; --orange:#f07a2a;
+  --ink:#111010; --paper:#f1efe8;
+  --heavy:"Anton","Impact","Arial Narrow",sans-serif;
+  --light:"Oswald","Arial Narrow",sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--black);color:var(--paper);font-family:var(--body);font-size:13px;line-height:1.45;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--black)}
+img{max-width:100%;display:block}
+
+/* blocks */
+.blk{--fg:var(--ink);--bg:var(--cream);--rule:rgba(17,16,16,.25);background:var(--bg);color:var(--fg);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 3.5rem}
+.blk.dark{--fg:var(--paper);--bg:var(--black);--rule:rgba(241,239,232,.3)}
+.blk.red{--bg:var(--red);--fg:var(--black);--rule:rgba(17,16,16,.35)}
+.blk.lime{--bg:var(--lime);--fg:var(--black)}
+.blk.orange{--bg:var(--orange);--fg:var(--black)}
+.in{max-width:1120px;margin:0 auto}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:1rem 0 .7rem;border-bottom:1px solid var(--fg);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:1.4rem}
+.bar a{color:inherit;text-decoration:none;font-weight:500;text-transform:none;letter-spacing:0}
+.lead{max-width:52ch;font-size:.72rem;line-height:1.6;margin:0 0 1.2rem}
+.h{font-family:var(--heavy);font-weight:400;text-transform:uppercase;line-height:.88;letter-spacing:.005em;margin:0 0 .9rem;text-wrap:balance}
+.h em{font-family:var(--light);font-weight:300;font-style:normal;letter-spacing:.01em}
+.h.xl{font-size:clamp(3.6rem,13vw,9rem)}
+.h.lg{font-size:clamp(2.6rem,7.5vw,5rem);margin-bottom:3.4rem}
+.h.md{font-size:clamp(1.9rem,4.5vw,2.7rem);margin-bottom:.4rem}
+.meta{font-size:.68rem;line-height:1.5;margin:0 0 1.6rem}
+.meta b{font-weight:700}
+.meta i{font-style:normal;opacity:.75}
+.meta i::before{content:" · "}
+hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
+
+/* hero */
+.hero{min-height:92svh}.hero .in{display:flex;flex-direction:column;min-height:inherit;width:100%}.hero .bar{margin-bottom:auto}.hero .h.xl{font-size:clamp(4rem,17vw,13rem)}
+.hero .photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#222}
+.hero .photo img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.hero .photo .tag{position:absolute;left:0;bottom:0;background:var(--black);color:var(--paper);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .7rem}
+.hero .cities{writing-mode:vertical-rl;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;position:absolute;right:.6rem;top:.6rem;color:var(--paper);mix-blend-mode:difference}
+
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--black);color:var(--paper);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.nav ul{list-style:none;margin:0 auto;max-width:1120px;padding:0;display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{display:block;white-space:nowrap;padding:.7rem 0;color:inherit;text-decoration:none;font-family:var(--light);font-weight:400;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid transparent;opacity:.6}
+.nav a.on,.nav a:hover{opacity:1;border-color:var(--paper)}
+.nav a:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+
+/* bottles: the two bottle blocks fill the viewport and spread their rows to the bottom edge */
+#bottle,#bottle2{min-height:100svh;padding-bottom:1.2rem}
+#bottle .in,#bottle2 .in{min-height:calc(100svh - 1.2rem);display:flex;flex-direction:column}
+#showcase,#showcase2{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
+#showcase h3,#showcase2 h3{margin-top:1.2rem}
+#bottle2 .h.lg{display:none}
+.tile .ph{height:170px}.tile .ph img{height:130px}.tile.big .ph img{height:170px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:1.2rem .8rem;margin:0}
+.pair{display:grid;grid-template-columns:7fr 3fr;gap:0 2.4rem}
+@media (max-width:760px){.pair{grid-template-columns:1fr}}
+.tile{display:grid;grid-template-rows:auto 3.1rem 1em auto;gap:.2rem;border-top:1px solid var(--fg);padding-top:.6rem;text-align:center;justify-items:center}
+.tile .ph{display:flex;align-items:flex-end;justify-content:center;margin-bottom:.4rem}
+.tile .ph img{width:auto}
+.tile b{font-family:var(--heavy);font-weight:400;font-size:.82rem;line-height:1.05;text-transform:uppercase;overflow:hidden}
+.tile .size{font-size:.58rem;line-height:1;letter-spacing:.14em;text-transform:uppercase;opacity:.7;align-self:end}
+.tile .p{font-family:var(--light);font-weight:400;font-size:1.05rem;line-height:1.2;font-variant-numeric:tabular-nums}
+
+/* house rules */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem 3rem}
+.rule{display:grid;grid-template-columns:56px 1fr;gap:1.2rem;align-items:center;border-top:1px solid var(--rule);padding-top:1rem}
+.rule img{width:56px;height:56px;object-fit:contain}
+.rule p{margin:0;font-size:.8rem;line-height:1.5;letter-spacing:.06em;text-transform:uppercase}
+/* cocktails — cinematic scenes: big glass under a red spotlight, ghosted number, heavy title */
+.scenes{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 4rem}
+.scene{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:1rem;border-top:1px solid var(--rule);padding-top:1rem}
+.scene:nth-child(even){direction:rtl}.scene:nth-child(even)>*{direction:ltr}
+.stage{position:relative;height:320px;display:flex;align-items:flex-end;justify-content:center}
+.stage::before{content:"";position:absolute;left:5%;right:5%;bottom:-6%;height:85%;background:radial-gradient(50% 55% at 50% 75%,rgba(200,50,31,.95),rgba(200,50,31,.35) 45%,transparent 72%);filter:blur(16px)}
+.stage img{position:relative;height:290px;width:auto;transform:translateY(30px);opacity:0;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),opacity .9s}
+.scene.vis .stage img{transform:none;opacity:1}
+.scene .txt{display:grid;grid-template-rows:auto auto auto;gap:.5rem;padding-top:3.2rem}
+.scene b{font-family:var(--heavy);font-weight:400;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:.95;text-transform:uppercase;height:1.9em;display:flex;align-items:end}
+.scene ul{list-style:none;margin:0;padding:0;font-size:.74rem;line-height:1.7;letter-spacing:.04em;text-transform:uppercase;opacity:.85;height:8.5em}
+.scene .p{font-family:var(--light);font-size:1.4rem;color:var(--red);font-variant-numeric:tabular-nums}
+@media (max-width:900px){.scenes{grid-template-columns:1fr}}
+@media (max-width:480px){.scene{grid-template-columns:1fr;min-height:0}.stage{height:240px}.stage img{height:210px}}
+@media (prefers-reduced-motion:reduce){.stage img{opacity:1;transform:none!important}}
+
+/* lists */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem 2.2rem;align-items:start}
+.grid>div{min-width:0}
+.cols{display:flex;justify-content:flex-end;gap:.9rem;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:.2rem}
+.cols span{min-width:3.4em;text-align:right}
+.list{list-style:none;margin:0 0 1.2rem;padding:0}
+.list li{display:grid;grid-template-columns:1fr auto auto;gap:.8rem;align-items:baseline;padding:.3rem 0;border-bottom:1px solid var(--rule);font-size:.72rem;font-weight:500}
+.list li span{min-width:0}
+.list li i{font-style:normal;font-family:var(--light);font-weight:400;font-size:.85rem;font-variant-numeric:tabular-nums;min-width:3.4em;text-align:right}
+.list li i:empty::before{content:"–";opacity:.4}
+.list li em{font-style:normal;font-weight:400;opacity:.7}
+.list.one li{grid-template-columns:1fr auto}
+@media (min-width:900px){#tequila .grid{grid-template-columns:repeat(3,1fr)}}
+.logo{height:.8rem;width:auto;max-width:100%;display:block;margin:.15rem 0}
+
+.r{opacity:.2;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.r.vis{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}}
+footer.blk{padding-block:0 4rem}
+footer .h{margin-bottom:.4rem}
+
+@media print{
+  @page{size:A4 landscape;margin:0}
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:10.5px}
+  .bar{margin-bottom:.9rem}
+  .r{opacity:1!important;transform:none!important;transition:none}
+  .nav{display:none}
+  .blk{padding-inline:12mm;padding-block:0 6mm;break-before:page;height:210mm;overflow:hidden}
+  #spirits2 .grid,#wine .grid,#soft .grid{grid-template-columns:repeat(4,1fr);gap:1rem 1.4rem}
+  #spirits .grid{grid-template-columns:repeat(3,1fr);gap:1rem 2rem}
+  #tequila .grid{grid-template-columns:repeat(3,1fr);gap:1rem 2rem}
+
+  .tiles{grid-template-columns:repeat(10,1fr);gap:.6rem .5rem}
+  .tile .ph{height:132px}.tile .ph img{height:104px}.tile.big .ph img{height:132px}
+  #bottle,#bottle2{min-height:0}
+  #bottle .in,#bottle2 .in{min-height:198mm}
+  #bottle .tiles,#bottle2 .tiles{grid-template-columns:repeat(auto-fit,minmax(60px,1fr));gap:1rem .6rem}
+  .pair{grid-template-columns:7fr 3fr}
+  #bottle .tile,#bottle2 .tile{grid-template-rows:auto 2.9rem 1.2em auto}
+  #bottle .tile b,#bottle2 .tile b{font-size:.84rem}
+  #bottle .tile .p,#bottle2 .tile .p{font-size:1.3rem}
+  #bottle .tile .size,#bottle2 .tile .size{font-size:.68rem}
+  #bottle h3,#bottle2 h3{font-size:1.9rem}
+  #bottle .h.lg,#bottle2 .h.lg{font-size:3.2rem}
+  #bottle .lead{display:none}
+  #bottle2 .h.lg{display:block}
+  .hero{break-before:auto;height:210mm;min-height:0;display:flex;flex-direction:column}.hero .in{min-height:0;flex:1}.hero .h.xl{font-size:12rem}
+  .hero .photo img{transform:none!important}
+  .h.lg{font-size:3rem;margin-bottom:2.6rem}.h.md{font-size:1.4rem}.lead{margin-bottom:.6rem}
+  .list li{padding:.2rem 0}.list{margin-bottom:.6rem}
+  .h{break-after:avoid}
+  .tile,.ck,.list li,.grid>div{break-inside:avoid}
+  #packages .h.lg{margin-bottom:1.4rem}
+  .scenes{grid-template-columns:repeat(3,1fr);gap:.6rem 2rem}
+  .rules{grid-template-columns:repeat(2,1fr);gap:1.6rem 3.5rem}.rule{grid-template-columns:72px 1fr;padding-top:1.2rem;gap:1.4rem}.rule img{width:72px;height:72px}.rule p{font-size:1rem}
+  footer .h.md{margin-top:3rem!important;font-size:2.2rem}
+  .scenes{gap:1.2rem 2rem}.scene{min-height:0;padding-top:.6rem}.stage{height:250px}.stage img{height:225px;opacity:1}
+  .scene b{font-size:1.9rem}.scene .txt{padding-top:2rem}
+  #cocktails .h.lg{margin-bottom:.6rem}#cocktails .meta{margin-bottom:.8rem}
+}
+</style>
+</head>
+<body>
+
+<header class="blk dark hero" id="top">
+  <div class="in">
+    <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#bottle">Menu</a></div>
+    <div>
+      <p class="lead">@baccaratbangkok</p>
+      <h1 class="h xl">Drinks<br><em>Menu</em></h1>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Menu sections"><ul>
+  <li><a href="#bottle">Grand Reserve</a></li>
+  <li><a href="#cocktails">Cocktails</a></li>
+  <li><a href="#spirits">Spirits</a></li>
+  <li><a href="#wine">Champagne &amp; Wine</a></li>
+  <li><a href="#soft">Beer &amp; Soft</a></li>
+</ul></nav>
+
+<section class="blk" id="bottle"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <p class="lead">The rare and the exceptional, by the bottle. Champagne, vodka, tequila, mezcal and cognac.</p>
+  <h2 class="h lg r">Grand<br><em>Reserve</em></h2>
+  <div id="showcase"></div>
+</div></section>
+<section class="blk" id="bottle2"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <h2 class="h lg r">Grand<br><em>Reserve</em></h2>
+  <div id="showcase2"></div>
+</div></section>
+
+<section class="blk dark" id="cocktails"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <h2 class="h lg r">Signature<br><em>Cocktails</em></h2>
+  <p class="meta"><b>450 / glass</b><i>Six house creations</i></p>
+  <div class="scenes" id="sig"></div>
+</div></section>
+<section class="blk red" id="cocktails2"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <h2 class="h lg r">Classics<br><em>&amp; Shots</em></h2>
+  <div class="grid">
+    <div><h3 class="h md r">Classic</h3><ul class="list one" id="classic"></ul></div>
+    <div><h3 class="h md r">Spirit <em>Forward</em></h3><ul class="list one" id="forward"></ul></div>
+    <div><h3 class="h md r">Shots <em>× 6</em></h3><ul class="list one" id="shotlist"></ul></div>
+  </div>
+</div></section>
+
+<section class="blk" id="spirits"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <h2 class="h lg r">Spirits <em>by the glass<br>&amp; bottle</em></h2>
+  <div class="grid" id="spiritcols"></div>
+</div></section>
+<section class="blk" id="tequila"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <h2 class="h lg r">Tequila<br><em>&amp; Mezcal</em></h2>
+  <div class="grid" id="spiritcols-t"></div>
+</div></section>
+<section class="blk" id="spirits2"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <h2 class="h lg r">Whisky, Bourbon<br><em>&amp; Cognac</em></h2>
+  <div class="grid" id="spiritcols2"></div>
+</div></section>
+
+<section class="blk lime" id="wine"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <h2 class="h lg r">Champagne<br><em>&amp; Wine</em></h2>
+  <div class="grid" id="winecols"></div>
+</div></section>
+
+<section class="blk orange" id="soft"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><a href="#top">Menu</a></div>
+  <h2 class="h lg r">Beer, Soft<br><em>&amp; Energy</em></h2>
+  <div class="grid" id="softcols"></div>
+</div></section>
+
+<footer class="blk dark"><div class="in">
+  <div class="bar"><span>Baccarat, Sukhumvit 24, Bangkok</span><span>Bangkok</span></div>
+  <h2 class="h lg r">House<br><em>Rules</em></h2>
+  <div class="rules" id="rules"></div>
+  <p class="h md r" style="margin-top:3rem">See you <em>tonight.</em></p>
+  <p class="meta"><b>Prices in Thai Baht</b><i>Subject to a 10% service charge and applicable taxes</i></p>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+// ---- menu data (THB) ----  [name, price, image, size]
+const showcase = [
+  ["Champagne", [
+    ["Louis Roederer Cristal",26900,"cristal"],["Armand de Brignac Brut Gold",28900,"armand"],["Dom Pérignon Rosé (Luminous)",43900,"dp-rose"],
+    ["Dom Pérignon (Luminous)",23900,"dp"],["Dom Pérignon (Luminous)",55900,"dp-magnum","1.5 L"],["D. Rock Champagne Brut",19500,"drock-brut"],
+    ["D. Rock Champagne Rosé",21000,"drock-rose"]]],
+  ["Vodka", [["Belvedere B10",19900,"belvedere-b10"],["Grey Goose Altius",18900,"gg-altius"],["Grey Goose Altius",45900,"gg-altius-175","1.75 L"]]],
+  ["Tequila", [
+    ["Don Julio 1942",29900,"dj1942"],["Don Julio 1942",70000,"dj1942-175","1.75 L"],["Don Julio Ultima Reserva",79900,"dj-ultima"],["Eight Reserve by 818",29900,"eight"],
+    ["Patrón El Alto",29900,"elalto"],["Patrón El Alto",70000,"elalto-175","1.75 L"],["Komos Añejo Cristalino",29900,"komos-cristalino"],["Komos Extra Añejo",89900,"komos-extra"]]],
+  ["Tequila & Mezcal", [
+    ["Clase Azul Reposado",29900,"ca-reposado"],["Clase Azul Blanco Ahumado",56000,"ca-ahumado"],["Clase Azul Gold",59900,"ca-gold"],["Clase Azul Añejo",110000,"ca-anejo"],
+    ["Clase Azul Ultra",300000,"ca-ultra"],["Clase Azul Durango Mezcal",63000,"ca-durango"],["Clase Azul Guerrero Mezcal",87500,"ca-guerrero"],["Clase Azul San Luis Potosí",112000,"ca-slp"]]],
+  ["Whisky, Brandy & Cognac", [
+    ["The Macallan 15 Yr",22900,"mac15"],["The Macallan 18 Yr",55900,"mac18"],["Johnnie Walker Blue Label",25900,"jwblue"],["Martell XO",19900,"martell-xo"],
+    ["Hennessy XO",19900,"hennessy-xo"],["Rémy Martin XO",19900,"remy-xo"],["Hennessy XO La Carafe",26000,"hennessy-carafe"],["Rémy Martin Louis XIII",329000,"louis13"]]]
+];
+const sig = [
+  ["Day One","day-one",["Bacardi","Pineapple","Mango","Grapefruit","Milk"]],
+  ["Many Dreams","many-dreams",["Gin","Sweet vermouth","Coffee","Campari"]],
+  ["I.F.L.Y","ifly",["Vodka","Honey","Apple","Lime","Egg white"]],
+  ["Harlem","harlem",["Tequila","Shrub","Dry chili","White vinegar","Apple"]],
+  ["Blinded","blinded",["Gin","Sweet vermouth","Coffee beans","Campari","Salt"]],
+  ["Outer Space","outer-space",["Gin","Dry vermouth","Elderflower"]]
+];
+const classic = [["Red Bull Vodka",450],["Whisky Sour",450],["Cosmopolitan",450],["Moscow Mule",450],["Pisco Sour",450],["Mojito",450],["Long Island Iced Tea",450],["Piña Colada",450]];
+const forward = [["Hanky Panky",490],["Negroni",490],["Boulevardier",490],["Vodka / Gin Martini",490],["Old Fashioned",490],["Manhattan",490]];
+const shots = [["Kiss My Ace <em>vodka</em>",1500],["Bad Bets <em>whisky</em>",1500],["Natural 9 <em>tequila</em>",1500],["Roll the Dice <em>random tequila, vodka, whisky</em>",1500]];
+const spirits = [
+  ["Gin",[["Bombay",450,4900],["Tanqueray 10",450,5100],["Hendrick's",450,5100],["Hendrick's Another",450,5100],["Roku",500,4900],["Monkey 47",500,5200],["No.3 London Dry",600,6200]]],
+  ["Vodka",[["Beluga",450,6000],["Cîroc",450,6000],["Grey Goose",450,6100],["Belvedere",450,6100],["Grey Goose Altius","",18900],["Belvedere B10","",19900],["Grey Goose 1.75 L","",12900],["Belvedere 1.75 L","",12900],["Grey Goose Altius 1.75 L","",45900]]],
+  ["Rum",[["Bacardi",420,""],["Zacapa Centenario 23 Year",650,7500],["Dictador Game Changer","",25900]]],
+  ["Mezcal",[["Clase Azul Durango","",63000],["Clase Azul Guerrero","",87500],["Clase Azul San Luis Potosí","",112000]]],
+  ["Tequila",[["Jose Cuervo Silver",450,4900],["1800 Cristalino",700,7900],["818 Reposado",600,8000],["818 Añejo","",12900],["Don Julio Blanco","",7200],["Don Julio Reposado",600,7900],["Patrón Reposado","",8900],["Solisca Blanco","",7100],["Solisca Reposado Cristalino","",12000],["Patrón El Alto","",29900],["Eight Reserve by 818","",29900],["Don Julio 1942","",29900],["Don Julio 1942 1.75 L","",70000],["Komos Reposado Rosa","",29900],["Komos Añejo Reserva","",29900],["Komos Añejo Cristalino","",29900],["Komos Extra Añejo","",89900],["Patrón El Alto 1.75 L","",70000],["Don Julio Ultima Reserva","",79900],["Clase Azul Reposado","",29900],["Clase Azul Gold","",59900],["Clase Azul Blanco Ahumado","",56000],["Clase Azul Añejo","",110000],["Clase Azul Ultra","",300000]]],
+  ["Whisky",[["Suntory Toki",450,5500],["Monkey Shoulder",450,5900],["Johnnie Walker Gold Label",450,5900],["Chivas 12 Yr",500,5900],["Chivas Regal 18 Yr",990,8900],["Highland Park 10 Yr","",7900],["Hibiki Harmony","",12900],["Johnnie Walker Blue Label","",25900]]],
+  ["Single Malt",[["Glenfiddich 12 Yr",450,5900],["Glenfiddich 15 Yr",650,8500],["Glenfiddich 18 Yr",900,12900],["Balvenie 12 Yr",600,7500],["Bowmore 12 Yr",600,8000],["Bowmore 15 Yr",700,9900],["The Macallan 12 Yr",950,12900],["The Macallan 15 Yr",1200,22900],["The Macallan 18 Yr","",55900]]],
+  ["Bourbon",[["Jim Beam",450,""],["Bulleit Bourbon",450,""],["Maker's Mark",490,4900]]],
+  ["Brandy & Cognac",[["Martell VSOP",500,7300],["Hennessy VSOP",550,7200],["Rémy Martin VSOP","",7300],["Martell XO","",19900],["Hennessy XO","",19900],["Hennessy XO La Carafe","",26000],["Rémy Martin XO","",19900],["Rémy Martin Louis XIII","",329000]]]
+];
+const wine = [
+  ["Champagne",[["Desir Champagne Brut","",5900],["Moët & Chandon Brut Impérial","",9900],["Moët & Chandon Ice Impérial","",11900],["Moët & Chandon Brut Impérial Magnum 1.5 L","",16900],["D. Rock Champagne Brut","",19500],["D. Rock Champagne Rosé","",21000],["Dom Pérignon (Luminous)","",23900],["Dom Pérignon (Luminous) 1.5 L","",55900],["Dom Pérignon Rosé (Luminous)","",43900],["Louis Roederer Cristal","",26900],["Armand de Brignac Brut Gold","",28900]]],
+  ["Sparkling Wine",[["Louis Perdrier Brut","",4200],["Louis Perdrier Rosé","",4500]]],
+  ["White Wine",[["House Reguta Prediale Trevenezie 2025",500,4600],["Domaine Daniel Dampt & Fils Chablis AOC",550,4600]]],
+  ["Red Wine",[["Montemajor Quattronotti Appassimento Negroamaro 2023",500,4600],["House Reguta Carrant 2021",550,4600],["Château Cantenac Brown 2021","",8900],["Clos du Marquis 2021","",8900],["Alter Ego de Château Palmer 2019","",13900]]]
+];
+const soft = [
+  ["Beer",[["Singha",300],["Asahi",320],["Hoegaarden <em>4.9% · 330 ml</em>",320],["Budweiser <em>5% · 330 ml</em>",320],["Singha (draft)",320],["Asahi (draft)",320]]],
+  ["Soft Drinks",[["Coke / Coke Zero / Sprite",140],["Acqua Panna / Evian water",140],["Ginger ale",140],["S.Pellegrino sparkling water",140],["Ice bucket",150]]],
+  ["Energy Drinks",[['<img class="logo" src="img/redbull-energy.webp" alt="Red Bull Energy Drink">',150],['<img class="logo" src="img/redbull-sugarfree.webp" alt="Red Bull Sugarfree">',150]]],
+  ["Extras",[["Juice (carafe): <em>apple, lime, orange, cranberry</em>",750],["Garnish <em>lemon, lime, cucumber, orange, pickled cherry</em>",100],["A bowl of tom yum chips",150]]]
+];
+
+const rules = [
+  ["id","Gov't issued ID card<br>At least 20 y/o"],
+  ["dress","Upscale casual only<br>No shorts, flip-flops, tank tops and no sportwear"],
+  ["weapons","No weapons, harassments and fights"],
+  ["smoking","No smoking cigarettes<br>No smoking cannabis"],
+  ["drugs","No drugs<br>No illegal substances"],
+  ["food","No outside food &amp; drinks"],
+  ["puking","No puking, ฿4,000 will be charged for deep cleaning &amp; disturbing other guests"],
+  ["behaviour","No illegal behaviours<br>May be asked to leave by security guards"]
+];
+// ---- render ----
+const fmt = n => n === "" ? "" : n.toLocaleString("en-US");
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const $ = id => document.getElementById(id);
+const head = (h, cols) => `<h3 class="h md r">${esc(h)}</h3>` + (cols ? `<div class="cols">${cols.map(c=>`<span>${c}</span>`).join("")}</div>` : "");
+const tilesOf = groups => groups.map(([h,items]) => `<div class="grp">` + head(h) + `<div class="tiles">` +
+  items.map(([n,p,img,size]) => `<div class="tile r${size?" big":""}"><div class="ph"><img src="img/${img}.webp" alt="${esc(n)}" loading="lazy"></div><b>${esc(n)}</b><span class="size">${size||""}</span><span class="p">${fmt(p)}</span></div>`).join("") + `</div></div>`).join("");
+$("showcase").innerHTML = `<div class="pair">${tilesOf(showcase.slice(0,2))}</div>` + tilesOf(showcase.slice(2,3)); $("showcase2").innerHTML = tilesOf(showcase.slice(3));
+$("rules").innerHTML = rules.map(([ic,t]) => `<div class="rule r"><img src="img/rule-${ic}.webp" alt=""><p>${t}</p></div>`).join("");
+$("sig").innerHTML = sig.map(([n,img,ing],i) => `<div class="scene r"><div class="stage"><img src="img/${img}.webp" alt="${esc(n)}" loading="lazy"></div><div class="txt"><b>${esc(n)}</b><ul>${ing.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><span class="p">450</span></div></div>`).join("");
+const one = list => list.map(([n,p]) => `<li class="r"><span>${n}</span><i>${fmt(p)}</i></li>`).join("");
+$("classic").innerHTML = one(classic); $("forward").innerHTML = one(forward); $("shotlist").innerHTML = one(shots);
+const two = groups => groups.map(([h,items]) => `<div>${head(h,["Glass","Bottle"])}<ul class="list">` +
+  items.map(([n,g,b]) => `<li class="r"><span>${esc(n)}</span><i>${fmt(g)}</i><i>${fmt(b)}</i></li>`).join("") + `</ul></div>`).join("");
+$("spiritcols").innerHTML = two(spirits.slice(0,3)); $("spiritcols-t").innerHTML = two([[spirits[4][0],spirits[4][1].slice(0,16)],["\u00a0",spirits[4][1].slice(16)],spirits[3]]); $("spiritcols2").innerHTML = two(spirits.slice(5));
+$("winecols").innerHTML = two(wine);
+$("softcols").innerHTML = soft.map(([h,items]) => `<div>${head(h)}<ul class="list one">${one(items)}</ul></div>`).join("");
+
+// ---- smooth scroll + reveal ----
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let lenis = null;
+if (window.Lenis && !reduce) {
+  lenis = new Lenis({ lerp: 0.08, wheelMultiplier: 0.9, smoothWheel: true });
+  const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+  requestAnimationFrame(raf);
+}
+document.querySelectorAll(".nav a, .bar a").forEach(a => a.addEventListener("click", e => {
+  const t = document.querySelector(a.getAttribute("href")); if (!t) return;
+  e.preventDefault(); lenis ? lenis.scrollTo(t, { offset: -44, duration: 1.2 }) : t.scrollIntoView();
+}));
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vis"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -6% 0px" });
+document.querySelectorAll(".r").forEach(el => io.observe(el));
+const links = [...document.querySelectorAll(".nav a")];
+const nav = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => l.classList.toggle("on", l.getAttribute("href") === "#" + e.target.id)); }), { rootMargin: "-35% 0px -55% 0px" });
+document.querySelectorAll("section").forEach(s => nav.observe(s));
+</script>
+</body>
+</html>
