@@ -50,7 +50,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
 
 /* hero */
 .hero{min-height:92svh;position:relative;isolation:isolate;overflow:hidden}.hero .in{display:flex;flex-direction:column;min-height:inherit;width:100%;position:relative}
-/* lips: glossy mouth in the hero, sways gently while the drips stretch and fall. Tap = gulp, then glide to the menu */
+/* lips: glossy mouth in the hero, sways gently while the drips stretch and fall. Tap = tongue flips up, then glide to the menu */
 .lips{position:absolute;right:7%;bottom:1.2rem;width:clamp(150px,18vw,240px);display:flex;flex-direction:column;align-items:center;background:none;border:0;padding:0;cursor:pointer;z-index:3;color:var(--cream);font-family:var(--heavy);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase}
 .lips svg{width:100%;height:auto;overflow:visible;display:block;filter:drop-shadow(0 14px 22px rgba(0,0,0,.55))}
 .lips .m{transform-box:view-box;transform-origin:50% 22%;animation:sway 3.8s ease-in-out infinite}
@@ -64,8 +64,10 @@ hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
 .lips:hover .m{animation-duration:1.6s}
 .lips:focus-visible{outline:2px solid var(--cream);outline-offset:6px}
 .lips .hint{margin-top:-1.4rem}
-.lips.pop .m{animation:gulp .6s cubic-bezier(.3,1.6,.4,1)}
-@keyframes gulp{0%{transform:scale(1)}45%{transform:scale(1.12) rotate(-3deg)}100%{transform:scale(1)}}
+.lips .tg{transform-box:view-box;transform-origin:285px 250px}
+.lips .dr{transition:opacity .25s}.lips.pop .dr{opacity:0;transition-duration:.08s}
+.lips.pop .tg{animation:flip .95s cubic-bezier(.55,0,.25,1)}
+@keyframes flip{0%{transform:scaleY(1)}38%,60%{transform:scaleY(-.88)}100%{transform:scaleY(1)}}
 @media (max-width:640px){.lips{right:4%;bottom:9.5rem;width:118px;font-size:.78rem}}
 @media (prefers-reduced-motion:reduce){.lips .m,.lips .st,.lips .bl,.lips .dp{animation:none}}
 @media print{.lips{display:none}}
@@ -207,7 +209,7 @@ footer .h{margin-bottom:.4rem}
       <p class="lead"><a class="social" href="https://www.instagram.com/baccaratbangkok" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>@baccaratbangkok</a></p>
       <h1 class="h xl">Drinks<br><em>Menu</em></h1>
     </div>
-    <button class="lips" id="lips" type="button" aria-label="Open the menu"><svg viewBox="0 0 544 1010" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#6f2540"/><stop offset=".42" stop-color="#a9435f"/><stop offset=".55" stop-color="#e09aae"/><stop offset=".68" stop-color="#a3405c"/><stop offset="1" stop-color="#6a223c"/></linearGradient></defs><g class="m"><g class="dr" style="--H:107;--d:0s;--t:3.4s"><rect class="st" x="166.0" y="628" width="14" height="107" rx="7.0" fill="url(#lg)"/><circle class="bl" cx="173" cy="730.8" r="9.2" fill="url(#lg)"/><circle class="dp" cx="173" cy="730.8" r="8.1" fill="url(#lg)"/></g><g class="dr" style="--H:162;--d:1.1s;--t:3.9s"><rect class="st" x="207.5" y="628" width="15" height="162" rx="7.5" fill="url(#lg)"/><circle class="bl" cx="215" cy="785.5" r="9.9" fill="url(#lg)"/><circle class="dp" cx="215" cy="785.5" r="8.7" fill="url(#lg)"/></g><g class="dr" style="--H:282;--d:0.5s;--t:4.6s"><rect class="st" x="269.0" y="628" width="26" height="282" rx="13.0" fill="url(#lg)"/><circle class="bl" cx="282" cy="902.2" r="17.2" fill="url(#lg)"/><circle class="dp" cx="282" cy="902.2" r="15.1" fill="url(#lg)"/></g><g class="dr" style="--H:132;--d:2.0s;--t:3.6s"><rect class="st" x="316.5" y="628" width="9" height="132" rx="4.5" fill="url(#lg)"/><circle class="bl" cx="321" cy="757.3" r="5.9" fill="url(#lg)"/><circle class="dp" cx="321" cy="757.3" r="5.2" fill="url(#lg)"/></g><image href="img/lips.webp" width="544" height="662"/></g></svg><span class="hint">Lick me</span></button>
+    <button class="lips" id="lips" type="button" aria-label="Open the menu"><svg viewBox="0 0 544 1010" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#6f2540"/><stop offset=".42" stop-color="#a9435f"/><stop offset=".55" stop-color="#e09aae"/><stop offset=".68" stop-color="#a3405c"/><stop offset="1" stop-color="#6a223c"/></linearGradient></defs><g class="m"><image href="img/lips-base.webp" width="544" height="662"/><g class="tg"><g class="dr" style="--H:107;--d:0s;--t:3.4s"><rect class="st" x="166.0" y="628" width="14" height="107" rx="7.0" fill="url(#lg)"/><circle class="bl" cx="173" cy="730.8" r="9.2" fill="url(#lg)"/><circle class="dp" cx="173" cy="730.8" r="8.1" fill="url(#lg)"/></g><g class="dr" style="--H:162;--d:1.1s;--t:3.9s"><rect class="st" x="207.5" y="628" width="15" height="162" rx="7.5" fill="url(#lg)"/><circle class="bl" cx="215" cy="785.5" r="9.9" fill="url(#lg)"/><circle class="dp" cx="215" cy="785.5" r="8.7" fill="url(#lg)"/></g><g class="dr" style="--H:282;--d:0.5s;--t:4.6s"><rect class="st" x="269.0" y="628" width="26" height="282" rx="13.0" fill="url(#lg)"/><circle class="bl" cx="282" cy="902.2" r="17.2" fill="url(#lg)"/><circle class="dp" cx="282" cy="902.2" r="15.1" fill="url(#lg)"/></g><g class="dr" style="--H:132;--d:2.0s;--t:3.6s"><rect class="st" x="316.5" y="628" width="9" height="132" rx="4.5" fill="url(#lg)"/><circle class="bl" cx="321" cy="757.3" r="5.9" fill="url(#lg)"/><circle class="dp" cx="321" cy="757.3" r="5.2" fill="url(#lg)"/></g><image href="img/tongue.webp" width="544" height="662"/></g></g></svg><span class="hint">Lick me</span></button>
   </div>
 </header>
 
@@ -380,8 +382,8 @@ lips.addEventListener("click", () => {
   if (lips.classList.contains("pop")) return;
   lips.classList.add("pop");
   const t = document.getElementById("bottle");
-  setTimeout(() => { lenis ? lenis.scrollTo(t, { offset: -44, duration: 1.4 }) : t.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); }, 380);
-  setTimeout(() => lips.classList.remove("pop"), 900);
+  setTimeout(() => { lenis ? lenis.scrollTo(t, { offset: -44, duration: 1.4 }) : t.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); }, 820);
+  setTimeout(() => lips.classList.remove("pop"), 1000);
 });
 document.querySelectorAll(".nav a, .bar a").forEach(a => a.addEventListener("click", e => {
   const t = document.querySelector(a.getAttribute("href")); if (!t) return;
