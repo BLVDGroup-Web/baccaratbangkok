@@ -51,7 +51,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
 /* hero */
 .hero{min-height:92svh;position:relative;isolation:isolate;overflow:hidden}.hero .in{display:flex;flex-direction:column;min-height:inherit;width:100%;position:relative}
 /* lips: glossy mouth in the hero, sways gently while the drips stretch and fall. Tap = gulp, then glide to the menu */
-.lips{position:absolute;right:7%;bottom:1.2rem;width:clamp(120px,14.5vw,192px);display:flex;flex-direction:column;align-items:center;background:none;border:0;padding:0;cursor:pointer;z-index:3;color:var(--cream);font-family:var(--heavy);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase}
+.lips{position:absolute;right:7%;bottom:-1.6rem;width:clamp(120px,14.5vw,192px);display:flex;flex-direction:column;align-items:center;background:none;border:0;padding:0;cursor:pointer;z-index:3;color:var(--cream);font-family:var(--heavy);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase}
 .lips svg{width:100%;height:auto;overflow:visible;display:block;filter:drop-shadow(0 14px 22px rgba(0,0,0,.55))}
 .lips .m{transform-box:view-box;transform-origin:50% 22%;animation:sway 3.8s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:rotate(-1.8deg)}50%{transform:rotate(1.8deg) translateY(-6px) scale(1.015,.99)}}
@@ -66,7 +66,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
 .lips .hint{margin-top:-1.4rem}
 .lips.pop .m{animation:gulp .6s cubic-bezier(.3,1.6,.4,1)}
 @keyframes gulp{0%{transform:scale(1)}45%{transform:scale(1.12) rotate(-3deg)}100%{transform:scale(1)}}
-@media (max-width:640px){.lips{right:4%;bottom:9.5rem;width:96px;font-size:.72rem}}
+@media (max-width:640px){.lips{right:4%;bottom:7.6rem;width:96px;font-size:.72rem}}
 @media (prefers-reduced-motion:reduce){.lips .m,.lips .st,.lips .bl,.lips .dp{animation:none}}
 @media print{.lips{display:none}}
 .hero .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
