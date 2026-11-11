@@ -376,6 +376,12 @@ const one = list => list.map(([n,p]) => `<li class="r"><span>${n}</span><i>${fmt
 $("classic").innerHTML = one(classic); $("forward").innerHTML = one(forward); $("shotlist").innerHTML = one(shots);
 const two = groups => groups.map(([h,items]) => `<div>${head(h,["Glass","Bottle"])}<ul class="list">` +
   items.map(([n,g,b]) => `<li class="r"><span>${esc(n)}</span><i>${fmt(g)}</i><i>${fmt(b)}</i></li>`).join("") + `</ul></div>`).join("");
+// price order inside every category (Grand Reserve showcase untouched): by bottle price, glass price breaks ties; glass-only items first
+const pk = r => r.length > 2 ? [r[2] === "" ? 0 : r[2], r[1] === "" ? Infinity : r[1]] : [r[1], 0];
+const cheapFirst = (a, b) => { const x = pk(a), y = pk(b); return x[0] - y[0] || x[1] - y[1]; };
+[spirits, wine, soft].forEach(groups => groups.forEach(([, items]) => items.sort(cheapFirst)));
+[classic, forward, shots].forEach(l => l.sort(cheapFirst));
+
 $("spiritcols").innerHTML = two(spirits.slice(0,3)); $("spiritcols-t").innerHTML = two([[spirits[4][0],spirits[4][1].slice(0,16)],["\u00a0",spirits[4][1].slice(16)],spirits[3]]); $("spiritcols2").innerHTML = two(spirits.slice(5));
 $("winecols").innerHTML = two(wine);
 $("softcols").innerHTML = soft.map(([h,items]) => `<div>${head(h)}<ul class="list one">${one(items)}</ul></div>`).join("");
