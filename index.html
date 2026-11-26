@@ -66,7 +66,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:1.6rem 0}
 .lips .hint{margin-top:-1.4rem}
 .lips.pop .m{animation:gulp .6s cubic-bezier(.3,1.6,.4,1)}
 @keyframes gulp{0%{transform:scale(1)}45%{transform:scale(1.12) rotate(-3deg)}100%{transform:scale(1)}}
-@media (max-width:640px){.lips{right:4%;bottom:7.6rem;width:96px;font-size:.72rem}}
+@media (max-width:640px){.lips{right:4%;bottom:5.6rem;width:96px;font-size:.72rem}}
 @media (prefers-reduced-motion:reduce){.lips .m,.lips .st,.lips .bl,.lips .dp{animation:none}}
 @media print{.lips{display:none}}
 /* back to top: appears once past the cover */
@@ -233,10 +233,11 @@ footer .h{margin-bottom:.4rem}
 .fp-map img{display:block;width:100%;height:auto;margin:0;padding:0;max-width:none;max-height:none}
 .fp-spots{position:absolute;inset:0;width:100%;height:100%}
 .fp-spot{cursor:pointer;outline:none}
-.fp-spot .hit{fill:transparent;stroke:transparent;stroke-width:3;transition:fill .25s,stroke .25s}
-.fp-spot:hover .hit,.fp-spot:focus-visible .hit{fill:rgba(241,239,232,.12);stroke:rgba(241,239,232,.6)}
-.fp-spot.match .hit{fill:rgba(158,224,67,.2);stroke:#9ee043}
-.fp-spot.on .hit{fill:rgba(158,224,67,.38);stroke:#9ee043;stroke-width:4}
+.fp-spot .hit{fill:#b83f2b;stroke:transparent;stroke-width:3;transition:fill .25s,stroke .25s}
+.fp-spot:hover .hit,.fp-spot:focus-visible .hit{fill:#d24c35}
+.fp.filtering .fp-spot:not(.match) .hit{fill:rgba(184,63,43,.2)}
+.fp-spot.on .hit{fill:#e8634a;stroke:#f1efe8;stroke-width:6}
+.fp-map img{position:relative;z-index:1;pointer-events:none}.fp-spots{z-index:0}
 .fp-card{position:absolute;z-index:2;width:230px;padding:16px 18px;background:#111010;color:#f1efe8;border:1px solid rgba(241,239,232,.3);box-shadow:0 12px 32px rgba(0,0,0,.45);pointer-events:none;text-align:left}
 .fp-card[hidden]{display:none}
 .fp-card .t{display:block;font:500 10.5px/1.3 "Oswald","Arial Narrow",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9ee043}
@@ -477,7 +478,7 @@ document.querySelectorAll("section").forEach(s => nav.observe(s));
 <script>
 (() => {
 const W = 1244, H = 1183;
-const SPOTS = [["A3","laid","tbl","c",[253,215,31]],["A5","laid","tbl","c",[377,214,31]],["A7","laid","tbl","c",[492,214,31]],["A4","laid","tbl","c",[253,313,31]],["A6","laid","tbl","c",[377,313,31]],["A8","laid","tbl","c",[587,299,31]],["EX1","laid","tbl","c",[129,784,31]],["EX2","laid","tbl","c",[129,912,31]],["A1","laid","tbl","r",[93,372,74,140]],["A2","laid","tbl","r",[93,528,74,150]],["A9","laid","tbl","r",[222,474,74,140]],["A10","laid","tbl","r",[362,474,76,140]],["A11","laid","tbl","r",[222,630,74,148]],["A12","laid","tbl","r",[362,630,76,148]],["A13","laid","tbl","r",[222,798,74,150]],["A14","laid","tbl","r",[362,798,76,150]],["S1","laid","sofa6","r",[333,953,163,128]],["S2","laid","sofa6","r",[516,870,128,161]],["S3","laid","sofa6","r",[516,711,128,159]],["S4","laid","sofa8","r",[516,550,128,160]],["S5","laid","sofa8","r",[516,389,128,160]],["ST14","dj","stand","c",[736,113,31]],["ST13","dj","stand","c",[736,206,31]],["ST12","dj","stand","c",[736,299,31]],["ST11","dj","stand","c",[1109,113,31]],["ST10","dj","stand","c",[1109,206,31]],["ST9","dj","stand","c",[1109,299,31]],["DJ1","dj","dj","r",[815,78,48,43]],["DJ5","dj","dj","r",[985,78,47,43]],["DJ2","dj","dj","r",[815,122,48,42]],["DJ3","dj","dj","r",[895,122,60,42]],["DJ4","dj","dj","r",[985,122,47,42]],["W1","dj","wall","r",[1180,76,43,86]],["W2","dj","wall","r",[1180,164,43,86]],["W3","dj","wall","r",[1180,252,43,79]],["ST7","vip","stand","c",[888,539,31]],["ST8","vip","stand","c",[1007,539,31]],["ST5","vip","stand","c",[889,636,31]],["ST6","vip","stand","c",[1007,636,31]],["ST3","vip","stand","c",[889,732,31]],["ST4","vip","stand","c",[1007,733,31]],["ST1","vip","stand","c",[889,829,31]],["ST2","vip","stand","c",[1007,829,31]],["VIP2","vip","vip","r",[690,550,127,160]],["VIP3","vip","vip","r",[690,711,127,159]],["VIP7","vip","vip","r",[1082,550,126,160]],["VIP6","vip","vip","r",[1082,711,126,159]],["VIP4","vip","vip","r",[690,902,165,130]],["VIP5","vip","vip","r",[1025,907,164,128]],["VIP1","vip","vvip","r",[690,389,127,160]],["VIP8","vip","vvip","r",[1082,389,126,160]]];  // [table, zone, type, shape c|r, geometry in floor plan px]
+const SPOTS = [["A3","laid","tbl","c",[253,215,30]],["A5","laid","tbl","c",[377,214,30]],["A7","laid","tbl","c",[492,214,30]],["A4","laid","tbl","c",[253,313,30]],["A6","laid","tbl","c",[377,313,30]],["A8","laid","tbl","c",[587,299,30]],["EX1","laid","tbl","c",[129,784,30]],["EX2","laid","tbl","c",[129,912,30]],["A1","laid","tbl","d","M94 412 L94 483 L165 483 L165 412Z"],["A2","laid","tbl","d","M94 569 L95 640 L166 639 L166 569Z"],["A9","laid","tbl","d","M224 513 L223 583 L294 584 L295 514Z"],["A10","laid","tbl","d","M364 513 L364 584 L435 584 L435 513Z"],["A11","laid","tbl","d","M224 670 L223 740 L294 741 L295 671Z"],["A12","laid","tbl","d","M364 670 L364 741 L435 741 L435 670Z"],["A13","laid","tbl","d","M225 838 L224 910 L295 910 L295 839Z"],["A14","laid","tbl","d","M364 839 L364 910 L435 910 L435 839Z"],["S1","laid","sofa6","d","M333 1014 L333 1074 L338 1080 L491 1080 L495 1076 L495 1012 L490 1008 L339 1008Z M388 955 L388 999 L445 999 L445 955Z"],["S2","laid","sofa6","d","M518 921 L517 978 L562 978 L562 922Z M573 870 L570 875 L570 1025 L574 1030 L639 1030 L642 1027 L643 1002 L642 873 L640 870Z"],["S3","laid","sofa6","d","M517 762 L517 819 L561 819 L562 762Z M573 711 L570 715 L570 865 L572 869 L640 869 L642 867 L643 831 L642 713 L640 711Z"],["S4","laid","sofa8","d","M517 601 L517 658 L562 658 L562 601Z M573 550 L570 554 L570 705 L573 709 L640 709 L642 706 L642 553 L640 550Z"],["S5","laid","sofa8","d","M518 440 L517 497 L562 497 L562 441Z M573 389 L570 394 L570 544 L573 548 L640 548 L642 546 L642 392 L639 389Z"],["ST14","dj","stand","c",[736,113,30]],["ST13","dj","stand","c",[736,206,30]],["ST12","dj","stand","c",[736,299,30]],["ST11","dj","stand","c",[1109,113,30]],["ST10","dj","stand","c",[1109,206,30]],["ST9","dj","stand","c",[1109,299,30]],["DJ1","dj","dj","d","M815 78 L863 78 L863 121 L815 121Z"],["DJ5","dj","dj","d","M985 78 L1032 78 L1032 121 L985 121Z"],["DJ2","dj","dj","d","M815 122 L863 122 L863 164 L815 164Z"],["DJ3","dj","dj","d","M895 122 L955 122 L955 164 L895 164Z"],["DJ4","dj","dj","d","M985 122 L1032 122 L1032 164 L985 164Z"],["W1","dj","wall","d","M1180 76 L1223 76 L1223 162 L1180 162Z"],["W2","dj","wall","d","M1180 164 L1223 164 L1223 250 L1180 250Z"],["W3","dj","wall","d","M1180 252 L1223 252 L1223 331 L1180 331Z"],["ST7","vip","stand","c",[888,539,30]],["ST8","vip","stand","c",[1007,539,30]],["ST5","vip","stand","c",[889,636,30]],["ST6","vip","stand","c",[1007,636,30]],["ST3","vip","stand","c",[889,732,30]],["ST4","vip","stand","c",[1007,733,30]],["ST1","vip","stand","c",[889,829,30]],["ST2","vip","stand","c",[1007,829,30]],["VIP2","vip","vip","d","M771 601 L771 658 L815 658 L816 601Z M694 550 L691 553 L691 706 L694 709 L760 709 L763 705 L763 554 L760 550Z"],["VIP3","vip","vip","d","M772 761 L771 819 L815 819 L816 762Z M693 711 L691 714 L691 867 L696 869 L693 867 L693 864 L706 864 L712 861 L717 856 L720 846 L761 846 L762 864 L757 869 L761 869 L763 866 L763 714 L761 711Z"],["VIP7","vip","vip","d","M1082 601 L1082 658 L1125 658 L1126 601Z M1137 550 L1134 555 L1135 707 L1137 709 L1204 709 L1207 704 L1206 552 L1204 550Z"],["VIP6","vip","vip","d","M1082 761 L1082 819 L1125 819 L1125 761Z M1137 711 L1134 715 L1134 865 L1136 869 L1140 869 L1136 866 L1137 846 L1177 846 L1181 857 L1185 861 L1192 864 L1204 864 L1205 866 L1201 869 L1205 869 L1207 865 L1207 715 L1204 711Z"],["VIP4","vip","vip","d","M691 962 L691 1025 L695 1029 L848 1029 L853 1024 L853 962 L848 957 L696 957Z M743 903 L743 947 L800 947 L800 903Z"],["VIP5","vip","vip","d","M1025 965 L1025 1030 L1030 1034 L1181 1034 L1186 1030 L1187 969 L1186 965 L1182 962 L1038 961 L1029 962Z M1077 907 L1078 952 L1134 951 L1134 907Z"],["VIP1","vip","vvip","d","M771 440 L771 497 L816 497 L815 440Z M694 389 L691 393 L691 545 L693 548 L761 548 L763 545 L763 393 L760 389Z"],["VIP8","vip","vvip","d","M1082 440 L1082 497 L1125 497 L1125 440Z M1138 389 L1134 394 L1134 544 L1137 548 L1204 548 L1207 544 L1207 394 L1203 389Z"]];  // [table, zone, type, shape c|r, geometry in floor plan px]
 const ZONES = {"laid": "Laid-back Zone", "dj": "DJ Zone", "vip": "VIP Zone"};
 const TYPES = {"tbl":["Standard table",6],"sofa6":["Standard sofa",6],"sofa8":["Premium sofa",8],"stand":["Premium standing table",8],"vip":["VIP sofa",10],"vvip":["VVIP sofa",12],"dj":["DJ booth table",null],"wall":["Wall table",null]};  // [label, guests]
 const root = document.getElementById("fp"); if (!root) return;
@@ -485,8 +486,9 @@ const svg = root.querySelector(".fp-spots"), card = root.querySelector(".fp-card
 const els = SPOTS.map(([n, z, t, s, g]) => {
   const a = document.createElementNS(NS, "g"); a.setAttribute("class", "fp-spot"); Object.assign(a.dataset, { n, z, t });
   a.setAttribute("tabindex", "0"); a.setAttribute("role", "button"); a.setAttribute("aria-label", `${n}, ${TYPES[t][0]}, ${ZONES[z]}`);
-  const e = document.createElementNS(NS, s === "c" ? "circle" : "rect"); e.setAttribute("class", "hit");
+  const e = document.createElementNS(NS, s === "c" ? "circle" : s === "d" ? "path" : "rect"); e.setAttribute("class", "hit");
   if (s === "c") [["cx", g[0]], ["cy", g[1]], ["r", g[2]]].forEach(([k, v]) => e.setAttribute(k, v));
+  else if (s === "d") e.setAttribute("d", g);
   else { ["x", "y", "width", "height"].forEach((k, i) => e.setAttribute(k, g[i])); e.setAttribute("rx", 8); }
   a.appendChild(e); svg.appendChild(a); return a;
 });
@@ -506,7 +508,7 @@ function pick(el) {
 }
 function filter(z) {
   chips.querySelectorAll(".fp-chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.z === z));
-  els.forEach(s => s.classList.toggle("match", z !== "all" && s.dataset.z === z)); pick(null);
+  els.forEach(s => s.classList.toggle("match", z !== "all" && s.dataset.z === z)); root.classList.toggle("filtering", z !== "all"); pick(null);
 }
 chips.innerHTML = [["all", "All tables"], ...Object.entries(ZONES)].map(([k, l]) => `<button class="fp-chip" type="button" data-z="${k}" aria-pressed="${k === "all"}">${l}</button>`).join("");
 chips.addEventListener("click", e => { const c = e.target.closest(".fp-chip"); if (c) filter(c.dataset.z); });
